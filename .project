@@ -7,5 +7,6 @@
 	<buildSpec>
 	</buildSpec>
 	<natures>
+		<nature>ilog.odms.ide.core.opl.project.nature</nature>
 	</natures>
 </projectDescription>
