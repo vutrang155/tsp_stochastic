@@ -6,13 +6,8 @@
 
 int n = ...; 
 range I = 1..n;
-int C[I][I] = ...;
+float C[I][I] = ...;
  
-// Generation des indices sous-graphes
-/*{int} s= asSet(I);
-range r=1 ..(ftoi(pow(2,card(s)))-1); // -1 pour eliminer {}
-{int} iSousGraphes [k in r] = {i | i in s: ((k div (ftoi(pow(2,(ord(s,i))))) mod 2) == 1)};
-*/
 // Decision variable
 dvar boolean X[I][I];
 dvar float+ u[I]; // ranking vector
@@ -23,8 +18,6 @@ minimize
 	
 subject to
 {
-  //forall (i in I) X[i][i] == 0;
-  
   forall(j in I)
     sum(i in I : i != j) X[i][j] == 1;
   
@@ -33,16 +26,26 @@ subject to
 
   forall (i, j in I : j != 1) u[i] + X[i][j] <= u[j] + (n - 1) * (1 - X[i][j]);
   u[1] == 0; // Init l'ordre du premier sommet
-  
-  /*forall(ir in r) 
-  	sum(i in iSousGraphes[ir]) sum(j in iSousGraphes[ir]) X[i][j] <= card(iSousGraphes[ir]) - 1;*/
-  	
 }
 
+
+// Afficher le resultat 
+range Ir = 0..n-1;
 execute afficher{
+  for(var i in Ir) {
+  	for(var j in I) {
+    	if(u[j] == i) {
+    	  if (i != n-1) write(j,"\n"); 
+    	  else write(j);
+    	}
+  	}
+ }  	
+  /*
   for(var i in I) {
     for(var j in I) {
       if (X[i][j] > 0) write(i, "->", j, "\n");
     }      
-  }    
+  } */
+  
+
 }  

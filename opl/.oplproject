@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="graph1_exact" category="opl">
+		<config default="true" name="berlin" category="opl">
 			<ref name="model_exact.mod" type="model">
 			</ref>
-			<ref name="graph1.dat" type="data">
+			<ref name="berlin52.dat" type="data">
 			</ref>
 		</config>
 	</configs>
