@@ -5,7 +5,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage[]{algorithm2e}
-\graphicspath{ {./} }
+\graphicspath{ {./rsc} }
 
 \title{Rapport technique}
 \author{
@@ -51,19 +51,24 @@ Littéralement, le voyageur doit visiter toutes les villes (connues dans le grap
 \caption{Une solution où existe plusieurs subtours (sous-chemins) (Attention, il s'agit d'un exemple pour montrer la conséquence d'une manque de la contrainte \ref{eq:optd_con4}, elle n'est donc pas une solution optimale)}
 
 \end{figure}
-Une approche possible pour ce modèle est de lancer l'optimisation avec les contraintes \ref{eq:optd_con1}, \ref{eq:optd_con2}, \ref{eq:optd_con4} plusieurs fois jusqu'à ce qu'on trouve la solution optimale. C'est le cas où il n'existe qu'un seul subtour. La démarche est exprimée dans le pseudo-code ci-dessous :\\
+Une approche possible pour ce modèle est de lancer l'optimisation avec les contraintes \ref{eq:optd_con1}, \ref{eq:optd_con2}, \ref{eq:optd_con4} plusieurs fois jusqu'à ce qu'on obtient la solution optimale. La démarche est exprimée dans le pseudo-code ci-dessous :\\
 \begin{algorithm}[H] 
  \KwData{graphe G=(V, E)}
  \KwResult{La solution optimale du problème du voyageur de commerce}
- \While{il existe plusieurs subtours dans la solution}{
-  lancer l'optimisation avec les contrainte \ref{eq:optd_con1} \ref{eq:optd_con2} \ref{eq:optd_con4}\;
-  \eIf{understand}{
-   go to next section\;
-   current section becomes this one\;
-   }{
-   go back to the beginning of current section\;
-  }
+   nS \(\leftarrow +\infty\)  \;
+ \While{nS n'est pas optimale}{
+  lancer l'optimisation avec les contraintes \ref{eq:optd_con1} \ref{eq:optd_con2} \ref{eq:optd_con4}\;
+  nS \(\leftarrow\) nombre de sous graphes de l'optimisation\;
  }
  \caption{Trouver la solution optimale du problème du voyageur de commerce}
 \end{algorithm}
+En effet, pour la contrainte d'élimination de subtours, il existe plusieures formulations possibles. Dans le cadre de notre projet, on a décidé d'utiliser celle de Miller-Tucker-Zemlin pour des raisons de simplicité et efficacité:
+\begin{equation}
+\begin{aligned}
+	u_i - u_j + nx_{ij} \leq n - 1, \quad & 2 \leq i \neq j \leq n \\
+	1 \leq u_j \leq n - 1, \quad & 2 \leq i \leq n
+\end{aligned}
+\end{equation}
+La variable \(u_i \in \mathbb{N} \cup \{0\}\) est une variable de décision, elle indique l'ordre de passage de la ville i. De ce fait, \(u_i \leq u_j\) implique que la ville i est visité avant la ville j.
+
 \end{document}
