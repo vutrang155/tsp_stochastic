@@ -1,5 +1,4 @@
 from TSP import TSP
-import numpy as np
 if __name__ == '__main__':
     filename = 'berlin52'
     m = TSP(filename+'.tsp')
@@ -9,7 +8,7 @@ if __name__ == '__main__':
     D = m.distance_matrix()
 
     # Write to dat
-    f = open(filename+".dat", "w") # w for overwriting existing content
+    f = open(filename+".dat", "w")
     f.write("n = "+str(n)+";\n")
     f.write("C = [")
     for i in range(n):

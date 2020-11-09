@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class TSP:
     def __init__(self, filepath):
         infile = open(filepath, 'r')
@@ -24,8 +25,8 @@ class TSP:
 
     def distance_matrix(self):
         n = self.dimension
-        D = np.zeros((n, n))
+        ret = np.zeros((n, n))
         for i in range(n):
             for j in range(n):
-                D[i, j] = self.dist(i, j)
-        return D
+                ret[i, j] = self.dist(i, j)
+        return ret
