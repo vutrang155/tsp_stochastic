@@ -40,12 +40,5 @@ execute afficher{
     	}
   	}
  }  	
-  /*
-  for(var i in I) {
-    for(var j in I) {
-      if (X[i][j] > 0) write(i, "->", j, "\n");
-    }      
-  } */
-  
 
 }  

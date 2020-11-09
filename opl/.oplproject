@@ -7,6 +7,14 @@
 			<ref name="berlin52.dat" type="data">
 			</ref>
 		</config>
+		<config default="false" name="berlin_sto" category="opl">
+			<ref name="berlin52.dat" type="data">
+			</ref>
+			<ref name="model_stochastic.mod" type="model">
+			</ref>
+			<ref name="config_stochastic.dat" type="data">
+			</ref>
+		</config>
 	</configs>
 	
 </project>
