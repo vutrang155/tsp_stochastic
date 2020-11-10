@@ -1,6 +1,7 @@
 from TSP import TSP
 import numpy as np
 import matplotlib.pyplot as plt
+
 if __name__ == '__main__':
     filename = 'berlin52'
     m = TSP(filename+'.tsp')

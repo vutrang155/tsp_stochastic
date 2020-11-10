@@ -11,6 +11,7 @@ float alpha = ...;
 float taux_majoration = ...;
 float quantileF[I][I];
 float V[I][I];
+
 execute getVmatrix{
     for (var i in I){
         for (var j in I){
@@ -29,6 +30,7 @@ execute quantile {
 	for (var i in I){
         for (var j in I){
            //quantileF[i][j] = C[i][j] + V[i][j] * (sqrt(3)/Math.PI) * ln(alpha/(1-alpha));
+
            quantileF[i][j] = C[i][j] + (V[i][j] * (Math.sqrt(3)/Math.PI) * Math.log(alpha/(1-alpha)));
         }
     }
@@ -52,6 +54,7 @@ subject to
   forall (i, j in I : j != 1) u[i] + X[i][j] <= u[j] + (n - 1) * (1 - X[i][j]);
   u[1] == 0; // Init l'ordre du premier sommet
   
+  // 4e contrainte
   sum(i in I) sum(j in I) X[i][j]*quantileF[i][j] <= 7544.36590190409*(1+taux_majoration);
 }
 
