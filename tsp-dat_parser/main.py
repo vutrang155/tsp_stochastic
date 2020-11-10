@@ -11,16 +11,75 @@ if __name__ == '__main__':
     D = m.distance_matrix()
 
     m_np = np.reshape(np.array(m.positions), (-1, 2))
-    x = m_np[:,0]
-    y = m_np[:,1]
-    print(x)
+    x=np.reshape(m_np[:,0],(-1,1))
+    y=np.reshape(m_np[:,1],(-1,1))
     plt.plot(x ,y,'bo')
+    for i in range(len(x)):
+        plt.text(x[i], y[i], str(i))
 
-    sol = [1,22,31,18,3,17,21,42,7,2,30,23,20,50,29,16,46,44,34,35,36,39,40,37,38,48,24]
-    sol = list(map(lambda x : x-1, sol))
+    sol=[0,
+     9,
+     4,
+     30,
+     27,
+     29,
+     8,
+     46,
+     45,
+     44,
+     40,
+     32,
+     37,
+     38,
+     28,
+     15,
+     5,
+     3,
+     48,
+     12,
+     6,
+     1,
+     11,
+     26,
+     31,
+     35,
+     34,
+     33,
+     14,
+     10,
+     2,
+     50,
+     42,
+     18,
+     19,
+     20,
+     23,
+     24,
+     21,
+     22,
+     47,
+     7,
+     43,
+     17,
+     49,
+     16,
+     36,
+     25,
+     51,
+     13,
+     41,
+     39]
+    sol=np.argsort(sol)
     print(sol)
-    for i in sol:
-        plt.plot(m_np[i,0], m_np[i,1], 'r-')
+    for k in range((sol).shape[0]):
+        if k == (sol).shape[0]-1:
+            x1 = [m_np[sol[k],0], m_np[sol[0],0]]
+            x2 = [m_np[sol[k],1], m_np[sol[0],1]]
+            plt.plot(x1,x2)
+        else:
+            x1 = [m_np[sol[k],0], m_np[sol[k+1],0]]
+            x2 = [m_np[sol[k],1], m_np[sol[k+1],1]]
+            plt.plot(x1, x2)
     plt.show()
 
 '''
