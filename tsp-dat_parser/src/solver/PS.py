@@ -82,12 +82,3 @@ class PS:
                 for j in range(n):
                     quantile = norm.ppf(self.alpha, loc=c[i, j], scale=math.sqrt(variances[i, j]))
                     self.model.add_constraint(x[(i, j)]*(c[i, j] + math.sqrt(variances[i, j])*quantile) <= Z)
-
-
-if __name__ == "__main__":
-    filename = 'data/berlin52'
-    m = TSP(filename + '.tsp')
-    sd = PS(m)
-    sold = sd.solve()
-    ss = PS(m, mod="stochastic", alpha=0.75, taux_majoration=0.25)
-    sols = ss.solve()
