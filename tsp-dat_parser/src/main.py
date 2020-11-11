@@ -1,85 +1,61 @@
 from TSP import TSP
 import numpy as np
 import matplotlib.pyplot as plt
+from solver.PS import PS
+import time
+
+def plot_tour(dat, index_list, p=plt):
+    for k in range((index_list).shape[0]):
+        if k == (index_list).shape[0] - 1:
+            x1 = [dat[index_list[k], 0], dat[index_list[0], 0]]
+            x2 = [dat[index_list[k], 1], dat[index_list[0], 1]]
+            p.plot(x1, x2, 'k')
+        else:
+            x1 = [dat[index_list[k], 0], dat[index_list[k + 1], 0]]
+            x2 = [dat[index_list[k], 1], dat[index_list[k + 1], 1]]
+            p.plot(x1, x2, 'k')
 
 if __name__ == '__main__':
-    filename = 'berlin52'
+    # Initialisation
+    filename = 'data/berlin52'
     m = TSP(filename+'.tsp')
+    a = 0.6
+    t = 0.2
 
-    # Generate distance matrix
-    n = m.dimension
-    D = m.distance_matrix()
+    t0 = time.time()
+    sd = PS(m)
+    (dist_d, x_d, u_d) = sd.solve()
+    t1 = time.time()
+    total = t1-t0
+    print("Résourdre TSP déterministe en {0:.1f}s, \n\tfonction objectif = {1:.2f}"\
+          .format(total, dist_d))
+
+    t0_ = time.time()
+    ss = PS(m, mod="stochastic", alpha=a, taux_majoration=t)
+    (dist_s, x_s, u_s) = ss.solve()
+    t1_ = time.time()
+    total_ = t1_-t0_
+    print("Résourdre TSP stochastique en {0:.1f}s, \
+          \n\talpha={1:.1f}, taux_majoration={2:.1f}\
+          \n\tfonction objectif = {3:.2f}" \
+          .format(total_, a, t, dist_s))
+
 
     m_np = np.reshape(np.array(m.positions), (-1, 2))
-    x=np.reshape(m_np[:,0],(-1,1))
-    y=np.reshape(m_np[:,1],(-1,1))
-    plt.plot(x ,y,'bo')
-    for i in range(len(x)):
-        plt.text(x[i], y[i], str(i))
+    x = np.reshape(m_np[:, 0], (-1, 1))
+    y = np.reshape(m_np[:, 1], (-1, 1))
 
-    sol=[0,
-     9,
-     4,
-     30,
-     27,
-     29,
-     8,
-     46,
-     45,
-     44,
-     40,
-     32,
-     37,
-     38,
-     28,
-     15,
-     5,
-     3,
-     48,
-     12,
-     6,
-     1,
-     11,
-     26,
-     31,
-     35,
-     34,
-     33,
-     14,
-     10,
-     2,
-     50,
-     42,
-     18,
-     19,
-     20,
-     23,
-     24,
-     21,
-     22,
-     47,
-     7,
-     43,
-     17,
-     49,
-     16,
-     36,
-     25,
-     51,
-     13,
-     41,
-     39]
-    sol=np.argsort(sol)
-    print(sol)
-    for k in range((sol).shape[0]):
-        if k == (sol).shape[0]-1:
-            x1 = [m_np[sol[k],0], m_np[sol[0],0]]
-            x2 = [m_np[sol[k],1], m_np[sol[0],1]]
-            plt.plot(x1,x2)
-        else:
-            x1 = [m_np[sol[k],0], m_np[sol[k+1],0]]
-            x2 = [m_np[sol[k],1], m_np[sol[k+1],1]]
-            plt.plot(x1, x2)
+    fig, (ax1, ax2) = plt.subplots(2, 1)
+    fig.suptitle("TSP")
+    ax1.set_title("Solution Déterministe d={0:.2f}".format(dist_d))
+    ax2.set_title("Solution Stochastique d={0:.2f} (a={1}%,t={2}%)".format(dist_s, (a*100), (t*100)))
+    ax1.plot(x, y, 'bo')
+    g_d = np.argsort(u_d, axis=0)
+    plot_tour(m_np, g_d, ax1)
+    ax2.plot(x, y, 'bo')
+
+    g_s = np.argsort(u_s, axis=0)
+    plot_tour(m_np, g_s, ax2)
     plt.show()
 
 '''
@@ -98,4 +74,4 @@ if __name__ == '__main__':
             f.write(",\n\t")
     f.write("];")
     f.close()
-    '''
+'''

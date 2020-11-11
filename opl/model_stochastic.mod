@@ -56,6 +56,7 @@ subject to
   
   // 4e contrainte
   sum(i in I) sum(j in I) X[i][j]*quantileF[i][j] <= 7544.36590190409*(1+taux_majoration);
+  //sum(i in I) sum(j in I) X[i][j]*quantileF[i][j] <= sum(i in I) sum(j in I) X[i][j]*C[i][j]* (1+taux_majoration);
 }
 
 

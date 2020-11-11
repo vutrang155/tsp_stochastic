@@ -102,11 +102,12 @@ Plus concrètement:\\
 &\Leftrightarrow Z \geq F_X^{-1}(\alpha) \textrm{ ou } F_X^{-1}(\alpha) \leq Z\\
 &\Leftrightarrow \sum_i^n \sum_j^n \bar{c_{ij}} x_{ij} + \sum_i^n \sum_j^n x_{ij} \sigma_{ij} \sqrt{2}erf^{-1}(2\alpha - 1) \leq Z\\
 &\Leftrightarrow \sum_i^n \sum_j^n x_{ij}  (\bar{c_{ij}}  + \sigma_{ij} \sqrt{2}erf^{-1}(2\alpha - 1)) \leq Z\\
-&\Leftrightarrow \sum_i^n \sum_j^n x_{ij} \Phi^{-1}(\alpha) \leq Z \\
-\textrm{Alors, (\ref{eq:opts_con4}) devient } & \sum_i^n \sum_j^n x_{ij} \Phi^{-1}(\alpha) \leq Z \label{eq:opts_con4q}\\
+&\Leftrightarrow \sum_i^n \sum_j^n x_{ij}  (\bar{c_{ij}}  + \sigma_{ij} \Phi^{-1}(\alpha)) \leq Z\\
+\textrm{Alors, (\ref{eq:opts_con4}) devient } & \sum_i^n \sum_j^n x_{ij}  (\bar{c_{ij}}  + \sigma_{ij} \Phi^{-1}(\alpha)) \leq Z \label{eq:opts_con4q}\\
 \end{aligned}
 \end{equation}\\
 \(\Phi^{-1}\) est la fonction quantile de la loi Normale \(\mathcal{N}(\bar{c_{ij}},\,\sigma_{ij}^{2})\), ou simplement l'inverse de la fonction cummulative \(F_{\tilde{c_{ij}}}(Z)\).\\
 Dans le cadre de ce projet, on considère que la moyenne de ses lois normales sont des coûts donnés dans les fichiers *.TSP fournit par la librairie TSPLIB. Il nous reste donc à déterminer ces variances. Nous proposons de les générer de façon aléatoire pour chaque coût \(\tilde{c_{ij}}\) donné.
-Enfin, comme expliqué ci-dessus, Z est la solution du problème du voyageur de commerce, majorée de 20 à 30\%, il faut donc d'abord obtenir la solution du problème déterministe. Ensuite, il ne reste qu'à lancer la résolution avec la contrainte (\ref{eq:opts_con4})
+Enfin, comme expliqué ci-dessus, Z est la solution du problème du voyageur de commerce, majorée de 20 à 30\%, il faut donc d'abord obtenir la solution du problème déterministe. Ensuite, il ne reste qu'à lancer la résolution avec la contrainte (\ref{eq:opts_con4})\\
+TODO : 
 \end{document}

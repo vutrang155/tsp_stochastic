@@ -1,0 +1,9 @@
+Pré-requis :
+    * Python 3.7
+    * CPLEX Studio
+Le démarche pour compiler :
+    * Activer l'environnement tsp_venv
+    * Initialiser cplex au python:
+        * Lancer setup.py dans la répertoire /chemin/de/CPLEX/cplex/python/3.7/PLATFORM/:
+            python setup.py install
+    * Lancer main.py
