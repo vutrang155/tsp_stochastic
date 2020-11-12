@@ -17,8 +17,8 @@ def plot_tour(dat, index_list, p=plt):
 
 if __name__ == '__main__':
     # Initialisation
-    filename = 'data/berlin52'
-    m = TSP(filename+'.tsp')
+    filename = 'berlin52'
+    m = TSP('data/'+filename+'.tsp')
     a = 0.6
     t = 0.2
 
@@ -49,10 +49,16 @@ if __name__ == '__main__':
     fig.suptitle("TSP")
     ax1.set_title("Solution Déterministe d={0:.2f}".format(dist_d))
     ax2.set_title("Solution Stochastique d={0:.2f} (a={1}%,t={2}%)".format(dist_s, (a*100), (t*100)))
+    ax1.get_xaxis().set_visible(False)
+    ax1.get_yaxis().set_visible(False)
+    ax2.get_xaxis().set_visible(False)
+    ax2.get_yaxis().set_visible(False)
+    # Place points
     ax1.plot(x, y, 'bo')
+    ax2.plot(x, y, 'bo')
+
     g_d = np.argsort(u_d, axis=0)
     plot_tour(m_np, g_d, ax1)
-    ax2.plot(x, y, 'bo')
 
     g_s = np.argsort(u_s, axis=0)
     plot_tour(m_np, g_s, ax2)

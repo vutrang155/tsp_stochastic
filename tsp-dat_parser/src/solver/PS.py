@@ -66,7 +66,11 @@ class PS:
         # Constraint 1c: Subtour elimination
         for i in range(1, n):
             for j in range(1, n):
-                self.model.add_constraint(u[i] - u[j] + n * x[(i, j)] <= n - 1)
+                if i != j:
+                    self.model.add_constraint(u[i] - u[j] + n * x[(i, j)] <= n - 1)
+        for i in range(1,n):
+            self.model.add_constraint(u[i] <= n - 1)
+            self.model.add_constraint(u[i] >= 1)
         # Constraint 1d: stochastic constraint
         if self.mod == "stochastic":
             (Z,_,_) = PS(self.data).solve()

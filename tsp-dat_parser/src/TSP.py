@@ -5,11 +5,11 @@ class TSP:
     def __init__(self, filepath):
         infile = open(filepath, 'r')
 
-        self.name = infile.readline().strip().split()[1]  # NAME
-        self.fileType = infile.readline().strip().split()[1]  # TYPE
-        self.comment = infile.readline().strip().split()[1]  # COMMENT
-        self.dimension = int(infile.readline().strip().split()[1])  # DIMENSION
-        self.edgeWeightType = infile.readline().strip().split()[1]  # EDGE_WEIGHT_TYPE
+        self.name = infile.readline().strip().split(":")[1]  # NAME
+        self.fileType = infile.readline().strip().split(":")[1]  # TYPE
+        self.comment = infile.readline().strip().split(":")[1]  # COMMENT
+        self.dimension = int(infile.readline().strip().split(":")[1])  # DIMENSION
+        self.edgeWeightType = infile.readline().strip().split(":")[1].strip()  # EDGE_WEIGHT_TYPE
         infile.readline()
 
         self.positions = []
