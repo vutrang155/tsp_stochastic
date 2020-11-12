@@ -1,4 +1,4 @@
-NAME: rold_test
+NAME: data16
 TYPE: TSP
 COMMENT: 52 locations in Berlin (Groetschel)
 DIMENSION: 16
