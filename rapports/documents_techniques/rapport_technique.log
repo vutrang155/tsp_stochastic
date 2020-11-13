@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  13 NOV 2020 11:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  13 NOV 2020 20:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -320,70 +320,76 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-Overfull \hbox (21.27296pt too wide) in paragraph at lines 25--25
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+Overfull \hbox (22.13947pt too wide) in paragraph at lines 24--26
+\OT1/cmr/m/n/10 Au sein de ces deux m^^Sethodes, nous al-lons une premi^^Rere f
+ois r^^Sesoudre la probl^^Sematique
+ []
+
+
+Overfull \hbox (21.27296pt too wide) in paragraph at lines 26--26
 []\OT1/cmr/bx/n/14.4 Probl^^Reme du voyageur de com-merce d^^Seterministe 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 46--49
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
 
-<rsc/graphe_avec_subtour.png, id=18, 209.1012pt x 81.6651pt>
+<rsc/graphe_avec_subtour.png, id=16, 209.1012pt x 81.6651pt>
 File: rsc/graphe_avec_subtour.png Graphic file (type png)
 <use rsc/graphe_avec_subtour.png>
-Package pdftex.def Info: rsc/graphe_avec_subtour.png  used on input line 51.
+Package pdftex.def Info: rsc/graphe_avec_subtour.png  used on input line 52.
 (pdftex.def)             Requested size: 172.5pt x 67.37202pt.
 [2 <./rsc/graphe_avec_subtour.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--92
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
 [3]
+Underfull \hbox (badness 10000) in paragraph at lines 89--93
+
+ []
+
 <rsc/g.png, id=30, 462.528pt x 346.896pt>
 File: rsc/g.png Graphic file (type png)
 <use rsc/g.png>
-Package pdftex.def Info: rsc/g.png  used on input line 115.
+Package pdftex.def Info: rsc/g.png  used on input line 116.
 (pdftex.def)             Requested size: 172.5pt x 129.37639pt.
 
-Overfull \hbox (1.65353pt too wide) in paragraph at lines 109--119
+Overfull \hbox (1.65353pt too wide) in paragraph at lines 110--120
 \OT1/cmr/m/n/10 ^^H[]$ est la fonc-tion quan-tile de la loi Nor-male $\OMS/cmsy
 /m/n/10 N\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ;  ^^[[]\OT1/cmr/m/n/10 )$, ou sim
 -ple-ment l'inverse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--119
+Underfull \hbox (badness 10000) in paragraph at lines 110--120
 
  []
 
-[4] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)
+[4]
 <rsc/rcd.png, id=34, 513.92pt x 293.095pt>
 File: rsc/rcd.png Graphic file (type png)
 <use rsc/rcd.png>
-Package pdftex.def Info: rsc/rcd.png  used on input line 125.
+Package pdftex.def Info: rsc/rcd.png  used on input line 126.
 (pdftex.def)             Requested size: 172.5pt x 98.38084pt.
- [5 <./rsc/g.png>]
-Overfull \hbox (3.96533pt too wide) in paragraph at lines 131--131
+ [5 <./rsc/g.png>] [6 <./rsc/rcd.png>]
+Overfull \hbox (3.96533pt too wide) in paragraph at lines 132--132
 []\OT1/cmr/bx/n/12 R^^Seglages n^^Secessaires pour l'algorithme du re-cuit simu
 l^^Se 
  []
 
-[6 <./rsc/rcd.png>] [7] [8] (./rapport_technique.aux)
+[7] [8] [9] (./rapport_technique.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -391,11 +397,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  5907 strings out of 481239
  89830 string characters out of 5920377
- 351925 words of memory out of 5000000
+ 353925 words of memory out of 5000000
  21090 multiletter control sequences out of 15000+600000
  540882 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,16n,47p,992b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,17n,47p,991b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -411,10 +417,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/t
 ype1/public/cm-super/sfrm1000.pfb>
-Output written on rapport_technique.pdf (8 pages, 251108 bytes).
+Output written on rapport_technique.pdf (9 pages, 257440 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
