@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Nov  4 16:19:18 2020
 
-@author: Rold
-"""
+
 import numpy as np
 import matplotlib.pyplot as plt
-from TSP_recuit import TSP
+from TSP_recuit import TSPR
 
 
-
-
-class Recuit_simule:
+class RSD:
     
   # Importation du fichier TSP  et initialisation  INIT
     
@@ -24,7 +19,7 @@ class Recuit_simule:
 
 
         filename = filepath
-        m = TSP(filename+'.tsp')
+        m = TSPR(filename+'.tsp')
                 
            # Affiche distance entre les villes et le Nombre de villes ( N ) 
            # d : Matrice contenant les distances entre 2 points
@@ -41,50 +36,31 @@ class Recuit_simule:
     
         self.ordre_trajet= np.arange(self.N)
         self.init = self.ordre_trajet.copy()
-        self.Xij = self.Chemin(self.N) 
-        # Xij[i][j]=1 si l'arc (vi,vj) est retenu dans le circuit 
-        #  = 0 sinon 
-        
-        
+
+               
         # Trajet en prenant en compte le retour à la ville de départ             
-        self.Trajet_total=np.append(self.init,self.init[0])
-        self.Trajet_init = self.Trajet_total
+        self.Trajet_optimal=np.append(self.init,self.init[0])
+        self.Trajet_init = self.Trajet_optimal
         print(self.Trajet_init)
         
         
-        self.EI = self.Calcul_Energie(self.d)   # Energie initiale
-        self.Einit = self.EI
+        self.Eoptimal = self.Calcul_Energie()   # Energie initiale
+        self.Einit = self.Eoptimal
         print("distance initiale ")
         print(self.Einit)
     
-    
-   
-    
-   
-    # Renvoie le chemin effectué par le voyageur de commerce 
-    def Chemin(self,N):
-        self.ordre_trajet
-        x = np.zeros([self.N,self.N])
-        
-        for i in range(0,self.N):
-            if i == self.N-1 :
-                x[self.ordre_trajet[0]][self.ordre_trajet[i]]=1
-            else :
-                x[self.ordre_trajet[i+1]][self.ordre_trajet[i]]=1
-        return x
-        
-    
+
     
     # Calcul de l'energie totale correspondant à la distance 
     # totale parcourue par le voyageur 
-    def Calcul_Energie(self,dist):
+    def Calcul_Energie(self):
       
         e = 0
         for i in range(0,self.N):
             if i == self.N-1 : #Inclure trajet entre derniere ville et ville départ
-                e = e + dist[self.ordre_trajet[i]][self.ordre_trajet[0]]
+                e = e + self.d[self.ordre_trajet[i]][self.ordre_trajet[0]]
             else :
-                e = e + dist[self.ordre_trajet[i]][self.ordre_trajet[i+1]]
+                e = e + self.d[self.ordre_trajet[i]][self.ordre_trajet[i+1]]
             
         return e
     
@@ -123,7 +99,7 @@ class Recuit_simule:
     
      # EXECUTION ALGO RECUIT SIMULE
     
-    def run(self):
+    def solve(self):
          
         t =0
         T = self.T0
@@ -145,8 +121,8 @@ class Recuit_simule:
             # Fluctuation ( equilibre du systeme )
             # Energie calculée 
                 self.Fluctuation_systeme(j,k)
-                EF = self.Calcul_Energie(self.d)
-                self.EI = self.Metropolis(EF,self.EI,j,k,T)
+                EF = self.Calcul_Energie()
+                self.Eoptimal = self.Metropolis(EF,self.Eoptimal,j,k,T)
             
             # Application de la loi de décroissance de la température    
                 t += 1
@@ -154,7 +130,7 @@ class Recuit_simule:
                 
                # historisation des données
                 if t % 10 == 0:
-                     Liste_energie.append(self.EI)
+                     Liste_energie.append(self.Eoptimal)
                      Liste_temps.append(t)
                      Liste_T.append(T)
                 
@@ -166,13 +142,13 @@ class Recuit_simule:
         
         # Info final trajet - distance
         
-        self.Trajet_total=np.append(self.ordre_trajet,self.ordre_trajet[0])
-        print(self.Trajet_total)
+        self.Trajet_optimal=np.append(self.ordre_trajet,self.ordre_trajet[0])
+        print(self.Trajet_optimal)
         
         
         print("distance optimale ")
-        print(self.EI)
-        self.Xij = self.Chemin(self.N) 
+        print(self.Eoptimal)
+    
         
         
   

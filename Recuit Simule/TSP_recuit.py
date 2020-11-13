@@ -1,35 +1,48 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Nov  5 16:47:39 2020
 
-@author: Rold
-"""
+
 import numpy as np
 
-class TSP:
+class TSPR:
+    
     def __init__(self, filepath):
         infile = open(filepath, 'r')
 
-        self.name = infile.readline().strip().split()[1]  # NAME
-        self.fileType = infile.readline().strip().split()[1]  # TYPE
-        self.comment = infile.readline().strip().split()[1]  # COMMENT
-        self.dimension = int(infile.readline().strip().split()[1])  # DIMENSION
-        self.edgeWeightType = infile.readline().strip().split()[1]  # EDGE_WEIGHT_TYPE
+        name = infile.readline()  # NAME
+        fileType = infile.readline()  # TYPE
+        comment = infile.readline() # COMMENT
+       
+        # DIMENSION
+        dim = infile.readline().strip().split()
+        if(len(dim) == 2):
+            self.dimension = int(dim[1]) 
+        elif(len(dim) == 3) :
+            self.dimension = int(dim[2]) 
+            
+        
+        # EDGE_WEIGHT_TYPE
+        eweighttype = infile.readline().strip().split()
+        if(len(eweighttype) == 2):
+            self.edgeWeightType = eweighttype[1]
+        elif(len(eweighttype) == 3) :
+            self.edgeWeightType = eweighttype[2]
+            
+            
         infile.readline()
 
-        self.positions = np.zeros((self.dimension,2)) #MODIFY
-        self.coor_x = np.zeros(self.dimension) # ADD
-        self.coor_y = np.zeros(self.dimension) # ADD
+        self.positions = np.zeros((self.dimension,2)) 
+        self.coor_x = np.zeros(self.dimension)
+        self.coor_y = np.zeros(self.dimension) 
 
 
         if self.edgeWeightType == "EUC_2D":
             for i in range(self.dimension):
                 x, y = infile.readline().strip().split()[1:]
               
-                self.positions[i][0]=float(x)  #MODIFY
-                self.positions[i][1]=float(y)  #MODIFY
-                self.coor_x[i]=float(x) # ADD
-                self.coor_y[i]=float(y) # ADD
+                self.positions[i][0]=float(x)
+                self.positions[i][1]=float(y)  
+                self.coor_x[i]=float(x) 
+                self.coor_y[i]=float(y) 
 
 
     def dist(self, i, j):
