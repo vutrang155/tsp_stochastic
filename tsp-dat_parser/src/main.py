@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # Initialisation
     filename = 'berlin52'
     m = TSP('data/'+filename+'.tsp')
-    a = 0.6
+    a = 0.8
     t = 0.2
 
     t0 = time.time()
@@ -62,6 +62,7 @@ if __name__ == '__main__':
 
     g_s = np.argsort(u_s, axis=0)
     plot_tour(m_np, g_s, ax2)
+    plt.savefig('g.png')
     plt.show()
 
 '''
