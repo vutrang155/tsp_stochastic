@@ -5,7 +5,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage[]{algorithm2e}
-\graphicspath{ {rsc/} }
+\graphicspath{ {./rsc/} }
 \allowdisplaybreaks
 \title{Rapport technique}
 \author{
@@ -166,8 +166,10 @@ Ci-dessous le pseudo-code pour l'algorithme Recuit simulé:\\
    		}
    		\uElse {
    			\(D_{opt}\) \(\leftarrow \) D\;
-   		}
+   		}   	
    }
+    t \(\leftarrow\) t+1 \; 
+     T \(\leftarrow\) \(T_{0} * exp(\frac{-t}{tau})\) \; 
  }
  \caption{La résolution du problème du voyageur de commerce à l'aide de l'algorithme recuit simulé}
 \end{algorithm}

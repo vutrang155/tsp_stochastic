@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  13 NOV 2020 20:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.4)  16 NOV 2020 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -345,10 +345,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
 
-<rsc/graphe_avec_subtour.png, id=16, 209.1012pt x 81.6651pt>
-File: rsc/graphe_avec_subtour.png Graphic file (type png)
-<use rsc/graphe_avec_subtour.png>
-Package pdftex.def Info: rsc/graphe_avec_subtour.png  used on input line 52.
+<./rsc/graphe_avec_subtour.png, id=16, 209.1012pt x 81.6651pt>
+File: ./rsc/graphe_avec_subtour.png Graphic file (type png)
+<use ./rsc/graphe_avec_subtour.png>
+Package pdftex.def Info: ./rsc/graphe_avec_subtour.png  used on input line 52.
 (pdftex.def)             Requested size: 172.5pt x 67.37202pt.
 [2 <./rsc/graphe_avec_subtour.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 73--75
@@ -360,10 +360,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--93
 
  []
 
-<rsc/g.png, id=30, 462.528pt x 346.896pt>
-File: rsc/g.png Graphic file (type png)
-<use rsc/g.png>
-Package pdftex.def Info: rsc/g.png  used on input line 116.
+<./rsc/g.png, id=30, 462.528pt x 346.896pt>
+File: ./rsc/g.png Graphic file (type png)
+<use ./rsc/g.png>
+Package pdftex.def Info: ./rsc/g.png  used on input line 116.
 (pdftex.def)             Requested size: 172.5pt x 129.37639pt.
 
 Overfull \hbox (1.65353pt too wide) in paragraph at lines 110--120
@@ -378,10 +378,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--120
  []
 
 [4]
-<rsc/rcd.png, id=34, 513.92pt x 293.095pt>
-File: rsc/rcd.png Graphic file (type png)
-<use rsc/rcd.png>
-Package pdftex.def Info: rsc/rcd.png  used on input line 126.
+<./rsc/rcd.png, id=34, 513.92pt x 293.095pt>
+File: ./rsc/rcd.png Graphic file (type png)
+<use ./rsc/rcd.png>
+Package pdftex.def Info: ./rsc/rcd.png  used on input line 126.
 (pdftex.def)             Requested size: 172.5pt x 98.38084pt.
  [5 <./rsc/g.png>] [6 <./rsc/rcd.png>]
 Overfull \hbox (3.96533pt too wide) in paragraph at lines 132--132
@@ -396,8 +396,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  5907 strings out of 481239
- 89830 string characters out of 5920377
- 353925 words of memory out of 5000000
+ 89856 string characters out of 5920377
+ 353927 words of memory out of 5000000
  21090 multiletter control sequences out of 15000+600000
  540882 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -417,7 +417,7 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/t
 ype1/public/cm-super/sfrm1000.pfb>
-Output written on rapport_technique.pdf (9 pages, 257440 bytes).
+Output written on rapport_technique.pdf (9 pages, 258205 bytes).
 PDF statistics:
  101 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream
